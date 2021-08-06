@@ -17,8 +17,10 @@
         december: december,
       }"
     >
-      <h1>{{ date }}</h1>
-      <h3>{{ Day }}</h3>
+      <div class="box">
+        <h1>{{ date }}</h1>
+        <h3>{{ Day }}</h3>
+      </div>
       <table>
         <tr>
           <td :class="{ today: a }" class="day">1</td>
