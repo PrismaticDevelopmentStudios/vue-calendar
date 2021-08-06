@@ -329,7 +329,7 @@ td {
   height: 30px;
   width: 30px;
   background: wheat;
-  border: 2px solid gainsboro;
+  border: 2px solid rgb(170, 170, 170);
 }
 .today {
   color: gold;
