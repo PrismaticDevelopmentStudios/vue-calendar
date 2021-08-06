@@ -1,49 +1,67 @@
 <template>
   <div class="home">
-    <h1>{{ date }}</h1>
-    <h3>{{ Day }}</h3>
-    <table>
-      <tr>
-        <td :class="{ today: a }" class="day">1</td>
-        <td :class="{ today: b }" class="day">2</td>
-        <td :class="{ today: c }" class="day">3</td>
-        <td :class="{ today: d }" class="day">4</td>
-        <td :class="{ today: e }" class="day">5</td>
-        <td :class="{ today: f }" class="day">6</td>
-      </tr>
-      <tr>
-        <td :class="{ today: g }" class="day">7</td>
-        <td :class="{ today: h }" class="day">8</td>
-        <td :class="{ today: i }" class="day">9</td>
-        <td :class="{ today: j }" class="day">10</td>
-        <td :class="{ today: k }" class="day">11</td>
-        <td :class="{ today: l }" class="day">12</td>
-      </tr>
-      <tr>
-        <td :class="{ today: m }" class="day">13</td>
-        <td :class="{ today: n }" class="day">14</td>
-        <td :class="{ today: o }" class="day">15</td>
-        <td :class="{ today: p }" class="day">16</td>
-        <td :class="{ today: q }" class="day">17</td>
-        <td :class="{ today: r }" class="day">18</td>
-      </tr>
-      <tr>
-        <td :class="{ today: s }" class="day">20</td>
-        <td :class="{ today: t }" class="day">21</td>
-        <td :class="{ today: u }" class="day">22</td>
-        <td :class="{ today: v }" class="day">23</td>
-        <td :class="{ today: w }" class="day">24</td>
-        <td :class="{ today: x }" class="day">25</td>
-      </tr>
-      <tr>
-        <td :class="{ today: y }" class="day">26</td>
-        <td :class="{ today: z }" class="day">27</td>
-        <td :class="{ today: aa }" class="day">28</td>
-        <td :class="{ today: ab }" v-if="feb" class="day">29</td>
-        <td :class="{ today: ac }" v-if="thirty" class="day">30</td>
-        <td :class="{ today: ad }" v-if="thirtyOne" class="day">31</td>
-      </tr>
-    </table>
+    <div
+      class="all"
+      :class="{
+        january: january,
+        february: february,
+        march: march,
+        april: april,
+        may: may,
+        june: june,
+        july: july,
+        august: august,
+        september: september,
+        october: october,
+        november: november,
+        december: december,
+      }"
+    >
+      <h1>{{ date }}</h1>
+      <h3>{{ Day }}</h3>
+      <table>
+        <tr>
+          <td :class="{ today: a }" class="day">1</td>
+          <td :class="{ today: b }" class="day">2</td>
+          <td :class="{ today: c }" class="day">3</td>
+          <td :class="{ today: d }" class="day">4</td>
+          <td :class="{ today: e }" class="day">5</td>
+          <td :class="{ today: f }" class="day">6</td>
+        </tr>
+        <tr>
+          <td :class="{ today: g }" class="day">7</td>
+          <td :class="{ today: h }" class="day">8</td>
+          <td :class="{ today: i }" class="day">9</td>
+          <td :class="{ today: j }" class="day">10</td>
+          <td :class="{ today: k }" class="day">11</td>
+          <td :class="{ today: l }" class="day">12</td>
+        </tr>
+        <tr>
+          <td :class="{ today: m }" class="day">13</td>
+          <td :class="{ today: n }" class="day">14</td>
+          <td :class="{ today: o }" class="day">15</td>
+          <td :class="{ today: p }" class="day">16</td>
+          <td :class="{ today: q }" class="day">17</td>
+          <td :class="{ today: r }" class="day">18</td>
+        </tr>
+        <tr>
+          <td :class="{ today: s }" class="day">20</td>
+          <td :class="{ today: t }" class="day">21</td>
+          <td :class="{ today: u }" class="day">22</td>
+          <td :class="{ today: v }" class="day">23</td>
+          <td :class="{ today: w }" class="day">24</td>
+          <td :class="{ today: x }" class="day">25</td>
+        </tr>
+        <tr>
+          <td :class="{ today: y }" class="day">26</td>
+          <td :class="{ today: z }" class="day">27</td>
+          <td :class="{ today: aa }" class="day">28</td>
+          <td :class="{ today: ab }" v-if="feb" class="day">29</td>
+          <td :class="{ today: ac }" v-if="thirty" class="day">30</td>
+          <td :class="{ today: ad }" v-if="thirtyOne" class="day">31</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -131,6 +149,18 @@ export default {
       twentynine: false,
       thirty: false,
       thirtyone: false,
+      january: false,
+      february: false,
+      march: false,
+      april: false,
+      may: false,
+      june: false,
+      july: false,
+      august: false,
+      september: false,
+      october: false,
+      november: false,
+      december: false,
     };
   },
   methods: {
@@ -147,6 +177,7 @@ export default {
         this.thirty = false;
         console.log("It's February!!!");
       }
+      // day number class values a-z + aa-af
       if (this.day == 0) {
         this.a = true;
       } else {
@@ -307,6 +338,69 @@ export default {
       } else {
         this.af = false;
       }
+      // month class designation
+      if (this.month == 0) {
+        this.january = true;
+      } else {
+        this.january = false;
+      }
+      if (this.month == 1) {
+        this.february = true;
+      } else {
+        this.february = false;
+      }
+      if (this.month == 2) {
+        this.march = true;
+      } else {
+        this.march = false;
+      }
+      if (this.month == 3) {
+        this.april = true;
+      } else {
+        this.april = false;
+      }
+      if (this.month == 4) {
+        this.may = true;
+      } else {
+        this.may = false;
+      }
+      if (this.month == 5) {
+        this.june = true;
+      } else {
+        this.june = false;
+      }
+      if (this.month == 6) {
+        this.july = true;
+      } else {
+        this.july = false;
+      }
+      if (this.month == 7) {
+        this.august = true;
+        console.log("aug", this.august);
+      } else {
+        this.august = false;
+        console.log("x");
+      }
+      if (this.month == 8) {
+        this.september = true;
+      } else {
+        this.september = false;
+      }
+      if (this.month == 9) {
+        this.october = true;
+      } else {
+        this.october = false;
+      }
+      if (this.month == 10) {
+        this.november = true;
+      } else {
+        this.november = false;
+      }
+      if (this.month == 11) {
+        this.december = true;
+      } else {
+        this.december = false;
+      }
     },
   },
   created() {
@@ -339,5 +433,44 @@ td {
 }
 .home {
   position: relative;
+}
+.january {
+  background: rgb(166, 166, 255);
+}
+.february {
+  background: pink;
+}
+.march {
+  background: whitesmoke;
+}
+.april {
+  background: violet;
+}
+.may {
+  background: purple;
+}
+.june {
+  background: orangered;
+}
+.july {
+  background-image: linear-gradient(red, white, blue);
+}
+.august {
+  background: mediumvioletred;
+}
+.september {
+  background: brown;
+}
+.october {
+  background: orange;
+}
+.november {
+  background: rgb(81, 81, 122);
+}
+.december {
+  background: gainsboro;
+}
+.all {
+  height: 100vh;
 }
 </style>
