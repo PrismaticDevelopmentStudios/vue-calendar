@@ -106,7 +106,7 @@ export default {
     var s = ", ";
     var date = day + 1 + s + months[month] + " " + year;
     var Day = days[day];
-    var actualDate = day + 1;
+
     return {
       date,
       Day,
@@ -164,7 +164,6 @@ export default {
       october: false,
       november: false,
       december: false,
-      actualDate,
     };
   },
   methods: {
